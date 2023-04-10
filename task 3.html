@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="rus">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 3</title>
+    <style>
+        div p {
+            background-color: darkgreen;}
+        div h2 {
+            background-color: #387226;}
+        #test p {
+            background-color: #2b4f70;}
+        #test h2 {
+            background-color: rgb(107, 74, 138);}
+        .bbb {
+            background-color: #aa75b6;}
+        #test .bbb{
+            background-color: rgb(80, 95, 74);}
+        p.bbb {
+            background-color: rgb(111, 142, 209);
+            text-decoration: none;}
+        h2.bbb {
+            background-color: #3d767e;
+            padding: 4px;}
+        #test p.bbb {
+            background-color: #b44c74;
+            text-decoration: overline;}
+        div h2, p { 
+            background-color: #264730;}
+        .bbb, .xxx {
+            text-decoration: underline;
+            padding: 8px;}
+        p.bbb, h2.xxx {
+            background-color: #80375c;}
+        #test p.bbb, #test p.xxx{
+            background-color: rgb(100, 12, 12);}
+        .fff{
+            background-color: rgb(71, 83, 94);
+            text-align:left}
+        .fff p{
+            background-color: rgb(134, 100, 121);}
+        p.fff{
+            background-color: rgb(109, 150, 140);}
+        .fff .bbb{
+            background-color: rgb(202, 120, 156);}
+        #test a:link{
+            text-decoration: none;
+            color: rgb(255, 0, 0);}
+        #test a:visited{
+            text-decoration: none;
+            color: rgb(255, 0, 0);}
+        #test a:hover{
+            text-decoration: underline;
+            color: rgb(0, 195, 255);}
+        a.www:visited, a.www:link {
+            text-decoration: underline;
+            color: rgb(0, 153, 255);}
+         a.www:hover{
+             text-decoration: none;}
+         #test a.www:link{
+             color: darkgreen;}
+        #test a.www:hover{
+            color: rgb(67, 192, 130);}
+        #test a.www:visited{
+            color: rgb(0, 174, 255);}
+        .eee a.www:visited{
+            color: rgb(160, 95, 95);}
+        .eee a.www:link{
+            color: rgb(211, 76, 193);}
+        .eee a.www:hover{
+            color: rgb(148, 185, 87);}
+        p>i{
+            color: rgb(0, 255, 174);
+            background-color: rgb(156, 151, 151);}
+        ul>li{
+            color: rgb(139, 0, 93);}
+        p>a, .test{
+            color: #387226;
+            background-color: aqua;}
+        b+i{
+            color: rgb(111, 207, 47);}
+        #test b+i{
+            color: rgb(0, 235, 235);
+            background-color: #dd67c9;}
+        ul+p{
+            color: rgb(212, 95, 173);
+            background-color: rgb(193, 179, 230);}
+        h1~p{
+            color: rgb(46, 85, 35);
+            background-color: rgb(157, 196, 192);}
+        #test h2 ~ p{
+            color: rgb(140, 0, 255);
+            background-color: rgb(255, 255, 255);}
+        p * i {
+            color: rgb(37, 23, 223);
+            background-color: rgb(127, 176, 190);}
+    </style>
+</head>
+<body>
+    <div>
+        <p>Задание 1</p>
+        <h2>Задание 2</h2>
+    </div>
+    <div id="test">
+        <p>Задание 3</p>
+        <h2>Задание 4</h2>
+    </div>
+    <span class="bbb">Задание 5</span>
+    <div id="test">
+        <div class="bbb">Задание 6</div>
+    </div>
+    <p class="bbb">Задание 7</p>
+    <h2 class="bbb">Задание 8</h2>
+    <div id="test">
+        <p class="bbb">Задание 9</p>
+    </div>
+    <div>
+        <h2>Задание 10</h2>
+        <p>Задание 10</p>
+    </div>
+    <span class="bbb">Задание 11</span>
+    <span class="xxx">Задание 11</span>
+    <p class="bbb">Задание 12</p>
+    <h2 class="xxx">Задание 12</h2>
+    <div id="test">
+        <p class="bbb">Задание 13</p>
+        <p class="xxx">Задание 13</p>
+    </div>
+    <div class="fff">
+        <span>Задание 14</span>
+        <p>Задание 15</p>
+    </div>
+    <p class="fff">Задание 16</p>
+    <p class="fff">
+        <span class="bbb">Задание 17</span>
+    </p>
+    <div class="fff">
+        <h2 class="bbb">Задание 18</h2>
+    </div>
+    <div id="test">
+        <a href="">Задание 19 </a>
+    </div>
+    <div class="www">
+        <a href="">Задание 20</a>
+    </div>
+    <div id="test">
+        <a class="www" href="">Задание 21</a>
+    </div>
+    <div class="eee">
+        <a class="www" href="">Задание 22</a>
+    </div>
+    <p>
+        <i>Задание 23</i>
+    </p>
+    <ul>
+        <li>Задание 24</li>
+    </ul>
+    <p>
+        <a href="">Задание 25</a>
+    </p>
+    <a class="test" href="">Задание 25</a>
+    <b>Текст</b>
+    <i>Задание 26</i>
+    <div id="test">
+        <b>Текст</b>
+        <i>Задание 27</i>
+    </div>
+    <ul>Текст</ul>
+    <p>Задание 28</p>
+    <h1>Текст</h1>
+    <p>Задание 29</p>
+    <div><p>Текст</p></div>
+    <p>Задание 29</p>
+    <article id="test">
+        <h2>Текст</h2>
+        <p>Задание 30</p>
+    </article>
+    <p>
+    <span>
+        <i>Задание 31</i>
+    </span>
+    </p>
+</body>
+</html>
