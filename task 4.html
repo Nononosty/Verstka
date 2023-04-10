@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Flags CSS</title>
+    </head>
+    <style>
+        *{ box-sizing: border-box;
+           margin: 0;}
+
+        body {
+        width: 100%;
+        height: 100vh;
+        background-color: rgb(206, 243, 195);
+        display: grid;
+        place-items: center;
+        font-weight: bold;
+        }
+
+        .Rtext
+        {
+        position: absolute;
+        text-align: center;
+        top: 33%;
+        left: 31%;
+        font-family: Verdana;
+        font-style:normal;
+        font-weight: 700;
+        font-size: 27px;
+        background: linear-gradient(to right, #003580 22%,rgb(252,210,20) 30%, rgb(204,18,36) 67%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;      
+        }   
+        
+        .flagR 
+        {
+        position: fixed;
+        width: 390px;
+        height: 240px;
+        overflow: hidden;
+        left: 25%;
+        }
+
+        .Romania {
+        background: linear-gradient(to right, rgb(4,42,124) 33.333%, rgb(252,210,20) 33.333%, rgb(204,18,36) 66.667%);
+        }
+
+        .Romania::before {
+        position: absolute;
+        content: "";
+        width: 33%;
+        height: 100%;
+        background-color: rgb(252,210,20);
+        left: 33%;
+        }
+
+        .Ttext
+        {
+        position: absolute;
+        text-align: center;
+        top: 33%;
+        left: 56%;
+        font-family:Verdana;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 27px;
+        background: linear-gradient(to right, rgb(212,18,52) 22%,rgb(252,206,4) 37%, rgb(4,106,76) 92%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;        
+        }
+
+        .flagT 
+        {
+        position: fixed;
+        width: 390px;
+        height: 240px;
+        overflow: hidden;
+        left: 55%;
+        }
+        
+        .Togo {
+        background: linear-gradient(rgb(4,106,76) 20%, rgb(252,206,4) 20%,  rgb(252,206,4) 40%, rgb(4,106,76) 40%,  rgb(4,106,76) 60%, rgb(252,206,4) 60%, rgb(252,206,4) 80%, rgb(4,106,76) 0);
+        }
+
+        .Togo::before {
+        position: absolute;
+        content: "";
+        width: 37%;
+        height: 60%;
+        background-color: rgb(212,18,52);
+        left: 0%;
+        }
+
+        .Togo::after {
+        content: "";
+        position: absolute;
+        left: 7%;
+        top: calc(23% - 25px);
+        height: 90px;
+        aspect-ratio: 1;
+        background: white;
+        clip-path: polygon(
+            50% 0%,
+            61% 35%,
+            98% 35%,
+            68% 57%,
+            79% 91%,
+            50% 70%,
+            21% 91%,
+            32% 57%,
+            2% 35%,
+            39% 35%
+        );
+        }
+
+    </style>
+    <body>
+        <div class="Rtext" > Romania </div>
+        <div class="flagR Romania"></div>
+        <div class="Ttext" > Republique Togolaise </div>
+        <div class="flagT Togo"></div>
+    </body>
+</html>
