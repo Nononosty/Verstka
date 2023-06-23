@@ -31,3 +31,11 @@
 {
     padding: 5px 10px;
 }
+
+.button {
+    background-color: #252425;
+    color: aliceblue;
+    border-radius: 10px;
+    font-size: 15px;
+
+}

@@ -17,7 +17,7 @@
             <form action="auth.php?log=1" method="post" class="form">
                 <input class="login-input" type="text" name="login" id="login" placeholder="Логин" require>
                 <input class="login-input" type="password" name="password" id="password" placeholder="Пароль" require>
-                <button class="login-input">Вход</button>
+                <button class="login-input button">Вход</button>
             </form>
         </div>
     </main>

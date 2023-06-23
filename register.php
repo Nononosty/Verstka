@@ -20,7 +20,7 @@
                 <input class="login-input" type="text" name="login" id="login" placeholder="Логин" require>
                 <input class="login-input" type="password" name="password" id="password" placeholder="Пароль" require>
                 <input class="login-input" type="file" name="file" id="file" accept=".png">
-                <button class="login-input">Зарегистрироваться</button>
+                <button class="button login-input">Зарегистрироваться</button>
             </form>
         </div>
     </main>

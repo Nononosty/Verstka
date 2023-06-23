@@ -44,9 +44,9 @@
                 </div>
                 <div class="profile_name">
                         <h2>Фамилия</h2>
-                        <?php echo $lname ?>
-                        <h2>Имя</h2>
                         <?php echo $fname ?>
+                        <h2>Имя</h2>
+                        <?php echo $lname ?>
                         <h2>email</h2>
                         <?php echo $mal ?>
                     <div>
