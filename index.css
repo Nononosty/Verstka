@@ -1,0 +1,98 @@
+.container1 {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.art_1
+{   
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 50px;
+    gap: 30px;
+    flex-wrap: wrap;
+    background-color: rgb(173, 173, 173);
+    border-radius: 25px;
+    
+}
+.sect
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+}
+
+.sect_c
+{
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+.hoody
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    background-color: rgb(173, 173, 173);
+    padding: 10px;
+    border-radius: 25px;
+}
+
+.h_i
+{
+    width: 200px;
+}
+
+.h_b
+{
+    margin-top: 10px;
+    background-color: #110f10;
+    color: aliceblue;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 10px;
+}
+
+.rectangle
+{
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 0 50px;
+    flex-wrap: wrap;
+}
+
+.rectangle_div
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffe7f5;
+    border-radius: 25px;
+    flex: 1 0;
+}
+
+.rectangle_div > p
+{
+    text-align: center;
+}
+
+
+@media (max-width: 768px)
+{
+    .container1 {
+        width: 100%; /* меняем ширину контейнера на 100% на маленьких экранах */
+      }
+      
+      .intro_img {
+        max-width: 100%; /* меняем максимальную ширину картинки на 100% на маленьких экранах */
+      }
+    }

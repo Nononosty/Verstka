@@ -1,0 +1,38 @@
+
+.header {
+    background: black;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+.menuitem {
+    color: white;
+    /*display: inline-block;*/
+    background: black;  /*хедер*/
+    padding: 10px;
+    font-size: 20px;
+    text-align: center;
+    text-decoration: none;
+
+}
+.im {
+padding-left: 20px;}
+
+.nav
+{
+    display: flex;
+    justify-content:  center;
+    padding-left: 20%;
+    row-gap: 10px;
+    column-gap: 250px;
+    flex-wrap: wrap;
+}
+
+.nav_link
+{
+    color: rgb(245, 243, 243);
+    text-decoration: none;
+    padding-top: 10px;
+    padding-left: 180px;
+
+}

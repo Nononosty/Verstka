@@ -2,10 +2,10 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 11.19
+-- Dumped from database version 14.1
 -- Dumped by pg_dump version 15.1
 
--- Started on 2023-06-23 08:02:09
+-- Started on 2023-06-23 11:24:48
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -19,7 +19,7 @@ SET client_min_messages = warning;
 SET row_security = off;
 
 --
--- TOC entry 8 (class 2615 OID 16501)
+-- TOC entry 5 (class 2615 OID 16396)
 -- Name: omg; Type: SCHEMA; Schema: -; Owner: postgres
 --
 
@@ -29,7 +29,17 @@ CREATE SCHEMA omg;
 ALTER SCHEMA omg OWNER TO postgres;
 
 --
--- TOC entry 216 (class 1255 OID 16727)
+-- TOC entry 6 (class 2615 OID 2200)
+-- Name: public; Type: SCHEMA; Schema: -; Owner: postgres
+--
+
+-- *not* creating schema, since initdb creates it
+
+
+ALTER SCHEMA public OWNER TO postgres;
+
+--
+-- TOC entry 226 (class 1255 OID 16397)
 -- Name: del_all_user_orders(); Type: FUNCTION; Schema: omg; Owner: postgres
 --
 
@@ -48,11 +58,11 @@ $$;
 ALTER FUNCTION omg.del_all_user_orders() OWNER TO postgres;
 
 --
--- TOC entry 214 (class 1255 OID 16682)
+-- TOC entry 227 (class 1255 OID 16398)
 -- Name: deleteOrder(integer); Type: PROCEDURE; Schema: omg; Owner: postgres
 --
 
-CREATE PROCEDURE omg."deleteOrder"(o_id integer)
+CREATE PROCEDURE omg."deleteOrder"(IN o_id integer)
     LANGUAGE sql
     AS $$
 	DELETE FROM omg."NUMOFORDER"
@@ -62,10 +72,10 @@ CREATE PROCEDURE omg."deleteOrder"(o_id integer)
 $$;
 
 
-ALTER PROCEDURE omg."deleteOrder"(o_id integer) OWNER TO postgres;
+ALTER PROCEDURE omg."deleteOrder"(IN o_id integer) OWNER TO postgres;
 
 --
--- TOC entry 215 (class 1255 OID 16688)
+-- TOC entry 228 (class 1255 OID 16399)
 -- Name: fn_sal(numeric); Type: FUNCTION; Schema: omg; Owner: postgres
 --
 
@@ -80,7 +90,7 @@ $$;
 ALTER FUNCTION omg.fn_sal(sale numeric) OWNER TO postgres;
 
 --
--- TOC entry 229 (class 1255 OID 16700)
+-- TOC entry 229 (class 1255 OID 16400)
 -- Name: get_pr_name(integer); Type: FUNCTION; Schema: omg; Owner: postgres
 --
 
@@ -96,7 +106,7 @@ $$;
 ALTER FUNCTION omg.get_pr_name(id_ct integer) OWNER TO postgres;
 
 --
--- TOC entry 213 (class 1255 OID 16680)
+-- TOC entry 230 (class 1255 OID 16401)
 -- Name: update_del_ord(); Type: PROCEDURE; Schema: omg; Owner: postgres
 --
 
@@ -112,7 +122,7 @@ $$;
 ALTER PROCEDURE omg.update_del_ord() OWNER TO postgres;
 
 --
--- TOC entry 230 (class 1255 OID 16725)
+-- TOC entry 231 (class 1255 OID 16402)
 -- Name: update_summa(); Type: FUNCTION; Schema: omg; Owner: postgres
 --
 
@@ -146,8 +156,10 @@ ALTER FUNCTION omg.update_summa() OWNER TO postgres;
 
 SET default_tablespace = '';
 
+SET default_table_access_method = heap;
+
 --
--- TOC entry 211 (class 1259 OID 16730)
+-- TOC entry 210 (class 1259 OID 16403)
 -- Name: ADRESS; Type: TABLE; Schema: omg; Owner: postgres
 --
 
@@ -162,7 +174,7 @@ CREATE TABLE omg."ADRESS" (
 ALTER TABLE omg."ADRESS" OWNER TO postgres;
 
 --
--- TOC entry 200 (class 1259 OID 16520)
+-- TOC entry 211 (class 1259 OID 16406)
 -- Name: CATEGORY; Type: TABLE; Schema: omg; Owner: postgres
 --
 
@@ -175,8 +187,8 @@ CREATE TABLE omg."CATEGORY" (
 ALTER TABLE omg."CATEGORY" OWNER TO postgres;
 
 --
--- TOC entry 2968 (class 0 OID 0)
--- Dependencies: 200
+-- TOC entry 3415 (class 0 OID 0)
+-- Dependencies: 211
 -- Name: TABLE "CATEGORY"; Type: COMMENT; Schema: omg; Owner: postgres
 --
 
@@ -184,7 +196,7 @@ COMMENT ON TABLE omg."CATEGORY" IS 'Код и наименование кате�
 
 
 --
--- TOC entry 204 (class 1259 OID 16637)
+-- TOC entry 212 (class 1259 OID 16409)
 -- Name: COLOR; Type: TABLE; Schema: omg; Owner: postgres
 --
 
@@ -197,7 +209,7 @@ CREATE TABLE omg."COLOR" (
 ALTER TABLE omg."COLOR" OWNER TO postgres;
 
 --
--- TOC entry 205 (class 1259 OID 16651)
+-- TOC entry 213 (class 1259 OID 16412)
 -- Name: MATERIAL; Type: TABLE; Schema: omg; Owner: postgres
 --
 
@@ -210,7 +222,7 @@ CREATE TABLE omg."MATERIAL" (
 ALTER TABLE omg."MATERIAL" OWNER TO postgres;
 
 --
--- TOC entry 202 (class 1259 OID 16559)
+-- TOC entry 214 (class 1259 OID 16415)
 -- Name: NUMOFORDER; Type: TABLE; Schema: omg; Owner: postgres
 --
 
@@ -224,8 +236,8 @@ CREATE TABLE omg."NUMOFORDER" (
 ALTER TABLE omg."NUMOFORDER" OWNER TO postgres;
 
 --
--- TOC entry 2972 (class 0 OID 0)
--- Dependencies: 202
+-- TOC entry 3416 (class 0 OID 0)
+-- Dependencies: 214
 -- Name: TABLE "NUMOFORDER"; Type: COMMENT; Schema: omg; Owner: postgres
 --
 
@@ -233,7 +245,7 @@ COMMENT ON TABLE omg."NUMOFORDER" IS 'Список заказов.';
 
 
 --
--- TOC entry 203 (class 1259 OID 16617)
+-- TOC entry 215 (class 1259 OID 16418)
 -- Name: ORDER; Type: TABLE; Schema: omg; Owner: postgres
 --
 
@@ -247,7 +259,7 @@ CREATE TABLE omg."ORDER" (
 ALTER TABLE omg."ORDER" OWNER TO postgres;
 
 --
--- TOC entry 212 (class 1259 OID 16755)
+-- TOC entry 216 (class 1259 OID 16421)
 -- Name: POLZ; Type: TABLE; Schema: omg; Owner: postgres
 --
 
@@ -263,7 +275,7 @@ CREATE TABLE omg."POLZ" (
 ALTER TABLE omg."POLZ" OWNER TO postgres;
 
 --
--- TOC entry 198 (class 1259 OID 16508)
+-- TOC entry 217 (class 1259 OID 16424)
 -- Name: PRODUCTS; Type: TABLE; Schema: omg; Owner: postgres
 --
 
@@ -281,8 +293,8 @@ CREATE TABLE omg."PRODUCTS" (
 ALTER TABLE omg."PRODUCTS" OWNER TO postgres;
 
 --
--- TOC entry 2979 (class 0 OID 0)
--- Dependencies: 198
+-- TOC entry 3417 (class 0 OID 0)
+-- Dependencies: 217
 -- Name: TABLE "PRODUCTS"; Type: COMMENT; Schema: omg; Owner: postgres
 --
 
@@ -290,7 +302,7 @@ COMMENT ON TABLE omg."PRODUCTS" IS 'Таблица товаров.';
 
 
 --
--- TOC entry 199 (class 1259 OID 16511)
+-- TOC entry 218 (class 1259 OID 16428)
 -- Name: PRODUCTS_product_id_seq; Type: SEQUENCE; Schema: omg; Owner: postgres
 --
 
@@ -305,7 +317,7 @@ ALTER TABLE omg."PRODUCTS" ALTER COLUMN product_id ADD GENERATED ALWAYS AS IDENT
 
 
 --
--- TOC entry 197 (class 1259 OID 16502)
+-- TOC entry 219 (class 1259 OID 16429)
 -- Name: USERS; Type: TABLE; Schema: omg; Owner: postgres
 --
 
@@ -321,8 +333,8 @@ CREATE TABLE omg."USERS" (
 ALTER TABLE omg."USERS" OWNER TO postgres;
 
 --
--- TOC entry 2984 (class 0 OID 0)
--- Dependencies: 197
+-- TOC entry 3418 (class 0 OID 0)
+-- Dependencies: 219
 -- Name: TABLE "USERS"; Type: COMMENT; Schema: omg; Owner: postgres
 --
 
@@ -330,7 +342,7 @@ COMMENT ON TABLE omg."USERS" IS 'Информация о клиентах.';
 
 
 --
--- TOC entry 201 (class 1259 OID 16531)
+-- TOC entry 220 (class 1259 OID 16432)
 -- Name: USERS_id_seq; Type: SEQUENCE; Schema: omg; Owner: postgres
 --
 
@@ -346,8 +358,8 @@ CREATE SEQUENCE omg."USERS_id_seq"
 ALTER TABLE omg."USERS_id_seq" OWNER TO postgres;
 
 --
--- TOC entry 2988 (class 0 OID 0)
--- Dependencies: 201
+-- TOC entry 3419 (class 0 OID 0)
+-- Dependencies: 220
 -- Name: USERS_id_seq; Type: SEQUENCE OWNED BY; Schema: omg; Owner: postgres
 --
 
@@ -355,7 +367,7 @@ ALTER SEQUENCE omg."USERS_id_seq" OWNED BY omg."USERS".id;
 
 
 --
--- TOC entry 210 (class 1259 OID 16683)
+-- TOC entry 221 (class 1259 OID 16433)
 -- Name: info_us_orders; Type: VIEW; Schema: omg; Owner: postgres
 --
 
@@ -376,7 +388,7 @@ CREATE VIEW omg.info_us_orders AS
 ALTER TABLE omg.info_us_orders OWNER TO postgres;
 
 --
--- TOC entry 207 (class 1259 OID 16665)
+-- TOC entry 222 (class 1259 OID 16438)
 -- Name: user_orders_count; Type: VIEW; Schema: omg; Owner: postgres
 --
 
@@ -391,7 +403,7 @@ CREATE VIEW omg.user_orders_count AS
 ALTER TABLE omg.user_orders_count OWNER TO postgres;
 
 --
--- TOC entry 208 (class 1259 OID 16669)
+-- TOC entry 223 (class 1259 OID 16442)
 -- Name: info_user_orders_count; Type: VIEW; Schema: omg; Owner: postgres
 --
 
@@ -406,7 +418,7 @@ CREATE VIEW omg.info_user_orders_count AS
 ALTER TABLE omg.info_user_orders_count OWNER TO postgres;
 
 --
--- TOC entry 206 (class 1259 OID 16661)
+-- TOC entry 224 (class 1259 OID 16446)
 -- Name: post_client; Type: VIEW; Schema: omg; Owner: postgres
 --
 
@@ -422,7 +434,7 @@ CREATE VIEW omg.post_client AS
 ALTER TABLE omg.post_client OWNER TO postgres;
 
 --
--- TOC entry 209 (class 1259 OID 16673)
+-- TOC entry 225 (class 1259 OID 16450)
 -- Name: users_id; Type: VIEW; Schema: omg; Owner: postgres
 --
 
@@ -438,7 +450,7 @@ CREATE VIEW omg.users_id AS
 ALTER TABLE omg.users_id OWNER TO postgres;
 
 --
--- TOC entry 2794 (class 2604 OID 16533)
+-- TOC entry 3225 (class 2604 OID 16515)
 -- Name: USERS id; Type: DEFAULT; Schema: omg; Owner: postgres
 --
 
@@ -446,8 +458,8 @@ ALTER TABLE ONLY omg."USERS" ALTER COLUMN id SET DEFAULT nextval('omg."USERS_id_
 
 
 --
--- TOC entry 2959 (class 0 OID 16730)
--- Dependencies: 211
+-- TOC entry 3398 (class 0 OID 16403)
+-- Dependencies: 210
 -- Data for Name: ADRESS; Type: TABLE DATA; Schema: omg; Owner: postgres
 --
 
@@ -460,8 +472,8 @@ COPY omg."ADRESS" ("ID", street, hause, flat) FROM stdin;
 
 
 --
--- TOC entry 2953 (class 0 OID 16520)
--- Dependencies: 200
+-- TOC entry 3399 (class 0 OID 16406)
+-- Dependencies: 211
 -- Data for Name: CATEGORY; Type: TABLE DATA; Schema: omg; Owner: postgres
 --
 
@@ -474,8 +486,8 @@ COPY omg."CATEGORY" (category_id, category_name) FROM stdin;
 
 
 --
--- TOC entry 2957 (class 0 OID 16637)
--- Dependencies: 204
+-- TOC entry 3400 (class 0 OID 16409)
+-- Dependencies: 212
 -- Data for Name: COLOR; Type: TABLE DATA; Schema: omg; Owner: postgres
 --
 
@@ -487,8 +499,8 @@ COPY omg."COLOR" ("#", color) FROM stdin;
 
 
 --
--- TOC entry 2958 (class 0 OID 16651)
--- Dependencies: 205
+-- TOC entry 3401 (class 0 OID 16412)
+-- Dependencies: 213
 -- Data for Name: MATERIAL; Type: TABLE DATA; Schema: omg; Owner: postgres
 --
 
@@ -500,8 +512,8 @@ COPY omg."MATERIAL" ("##", material) FROM stdin;
 
 
 --
--- TOC entry 2955 (class 0 OID 16559)
--- Dependencies: 202
+-- TOC entry 3402 (class 0 OID 16415)
+-- Dependencies: 214
 -- Data for Name: NUMOFORDER; Type: TABLE DATA; Schema: omg; Owner: postgres
 --
 
@@ -523,8 +535,8 @@ COPY omg."NUMOFORDER" (num_order, id_user, summa) FROM stdin;
 
 
 --
--- TOC entry 2956 (class 0 OID 16617)
--- Dependencies: 203
+-- TOC entry 3403 (class 0 OID 16418)
+-- Dependencies: 215
 -- Data for Name: ORDER; Type: TABLE DATA; Schema: omg; Owner: postgres
 --
 
@@ -544,8 +556,8 @@ COPY omg."ORDER" (number_order, id_product, quantity) FROM stdin;
 
 
 --
--- TOC entry 2960 (class 0 OID 16755)
--- Dependencies: 212
+-- TOC entry 3404 (class 0 OID 16421)
+-- Dependencies: 216
 -- Data for Name: POLZ; Type: TABLE DATA; Schema: omg; Owner: postgres
 --
 
@@ -558,8 +570,8 @@ COPY omg."POLZ" (id_c, log, pass, ava, id) FROM stdin;
 
 
 --
--- TOC entry 2951 (class 0 OID 16508)
--- Dependencies: 198
+-- TOC entry 3405 (class 0 OID 16424)
+-- Dependencies: 217
 -- Data for Name: PRODUCTS; Type: TABLE DATA; Schema: omg; Owner: postgres
 --
 
@@ -579,8 +591,8 @@ COPY omg."PRODUCTS" (product_id, product_name, category, size, price, color, typ
 
 
 --
--- TOC entry 2950 (class 0 OID 16502)
--- Dependencies: 197
+-- TOC entry 3407 (class 0 OID 16429)
+-- Dependencies: 219
 -- Data for Name: USERS; Type: TABLE DATA; Schema: omg; Owner: postgres
 --
 
@@ -593,8 +605,8 @@ COPY omg."USERS" (id, surname, name, email, adress) FROM stdin;
 
 
 --
--- TOC entry 2994 (class 0 OID 0)
--- Dependencies: 199
+-- TOC entry 3420 (class 0 OID 0)
+-- Dependencies: 218
 -- Name: PRODUCTS_product_id_seq; Type: SEQUENCE SET; Schema: omg; Owner: postgres
 --
 
@@ -602,8 +614,8 @@ SELECT pg_catalog.setval('omg."PRODUCTS_product_id_seq"', 11, true);
 
 
 --
--- TOC entry 2995 (class 0 OID 0)
--- Dependencies: 201
+-- TOC entry 3421 (class 0 OID 0)
+-- Dependencies: 220
 -- Name: USERS_id_seq; Type: SEQUENCE SET; Schema: omg; Owner: postgres
 --
 
@@ -611,7 +623,7 @@ SELECT pg_catalog.setval('omg."USERS_id_seq"', 4, true);
 
 
 --
--- TOC entry 2811 (class 2606 OID 16734)
+-- TOC entry 3227 (class 2606 OID 16456)
 -- Name: ADRESS ADRESS_pkey; Type: CONSTRAINT; Schema: omg; Owner: postgres
 --
 
@@ -620,7 +632,7 @@ ALTER TABLE ONLY omg."ADRESS"
 
 
 --
--- TOC entry 2801 (class 2606 OID 16524)
+-- TOC entry 3229 (class 2606 OID 16458)
 -- Name: CATEGORY CATEGORY_pkey; Type: CONSTRAINT; Schema: omg; Owner: postgres
 --
 
@@ -629,7 +641,7 @@ ALTER TABLE ONLY omg."CATEGORY"
 
 
 --
--- TOC entry 2807 (class 2606 OID 16641)
+-- TOC entry 3231 (class 2606 OID 16460)
 -- Name: COLOR COLOR_pkey; Type: CONSTRAINT; Schema: omg; Owner: postgres
 --
 
@@ -638,7 +650,7 @@ ALTER TABLE ONLY omg."COLOR"
 
 
 --
--- TOC entry 2809 (class 2606 OID 16655)
+-- TOC entry 3233 (class 2606 OID 16462)
 -- Name: MATERIAL MATERIAL_pkey; Type: CONSTRAINT; Schema: omg; Owner: postgres
 --
 
@@ -647,7 +659,7 @@ ALTER TABLE ONLY omg."MATERIAL"
 
 
 --
--- TOC entry 2803 (class 2606 OID 16578)
+-- TOC entry 3235 (class 2606 OID 16464)
 -- Name: NUMOFORDER NUMOFORDER_pkey; Type: CONSTRAINT; Schema: omg; Owner: postgres
 --
 
@@ -656,7 +668,7 @@ ALTER TABLE ONLY omg."NUMOFORDER"
 
 
 --
--- TOC entry 2805 (class 2606 OID 16621)
+-- TOC entry 3237 (class 2606 OID 16466)
 -- Name: ORDER ORDER_pkey; Type: CONSTRAINT; Schema: omg; Owner: postgres
 --
 
@@ -665,7 +677,7 @@ ALTER TABLE ONLY omg."ORDER"
 
 
 --
--- TOC entry 2813 (class 2606 OID 16759)
+-- TOC entry 3239 (class 2606 OID 16468)
 -- Name: POLZ POLZ_pkey; Type: CONSTRAINT; Schema: omg; Owner: postgres
 --
 
@@ -674,7 +686,7 @@ ALTER TABLE ONLY omg."POLZ"
 
 
 --
--- TOC entry 2799 (class 2606 OID 16517)
+-- TOC entry 3241 (class 2606 OID 16470)
 -- Name: PRODUCTS PRODUCTS_pkey; Type: CONSTRAINT; Schema: omg; Owner: postgres
 --
 
@@ -683,7 +695,7 @@ ALTER TABLE ONLY omg."PRODUCTS"
 
 
 --
--- TOC entry 2797 (class 2606 OID 16538)
+-- TOC entry 3243 (class 2606 OID 16472)
 -- Name: USERS USERS_pkey; Type: CONSTRAINT; Schema: omg; Owner: postgres
 --
 
@@ -692,23 +704,23 @@ ALTER TABLE ONLY omg."USERS"
 
 
 --
--- TOC entry 2822 (class 2620 OID 16728)
+-- TOC entry 3253 (class 2620 OID 16473)
 -- Name: USERS remove_user; Type: TRIGGER; Schema: omg; Owner: postgres
 --
 
-CREATE TRIGGER remove_user BEFORE DELETE ON omg."USERS" FOR EACH ROW EXECUTE PROCEDURE omg.del_all_user_orders();
+CREATE TRIGGER remove_user BEFORE DELETE ON omg."USERS" FOR EACH ROW EXECUTE FUNCTION omg.del_all_user_orders();
 
 
 --
--- TOC entry 2823 (class 2620 OID 16726)
+-- TOC entry 3252 (class 2620 OID 16474)
 -- Name: ORDER upd_summa; Type: TRIGGER; Schema: omg; Owner: postgres
 --
 
-CREATE TRIGGER upd_summa AFTER INSERT ON omg."ORDER" FOR EACH ROW EXECUTE PROCEDURE omg.update_summa();
+CREATE TRIGGER upd_summa AFTER INSERT ON omg."ORDER" FOR EACH ROW EXECUTE FUNCTION omg.update_summa();
 
 
 --
--- TOC entry 2814 (class 2606 OID 16750)
+-- TOC entry 3251 (class 2606 OID 16475)
 -- Name: USERS fk_adress; Type: FK CONSTRAINT; Schema: omg; Owner: postgres
 --
 
@@ -717,7 +729,7 @@ ALTER TABLE ONLY omg."USERS"
 
 
 --
--- TOC entry 2815 (class 2606 OID 16526)
+-- TOC entry 3248 (class 2606 OID 16480)
 -- Name: PRODUCTS fk_category; Type: FK CONSTRAINT; Schema: omg; Owner: postgres
 --
 
@@ -726,7 +738,7 @@ ALTER TABLE ONLY omg."PRODUCTS"
 
 
 --
--- TOC entry 2816 (class 2606 OID 16645)
+-- TOC entry 3249 (class 2606 OID 16485)
 -- Name: PRODUCTS fk_color; Type: FK CONSTRAINT; Schema: omg; Owner: postgres
 --
 
@@ -735,7 +747,7 @@ ALTER TABLE ONLY omg."PRODUCTS"
 
 
 --
--- TOC entry 2821 (class 2606 OID 16760)
+-- TOC entry 3247 (class 2606 OID 16490)
 -- Name: POLZ fk_id; Type: FK CONSTRAINT; Schema: omg; Owner: postgres
 --
 
@@ -744,7 +756,7 @@ ALTER TABLE ONLY omg."POLZ"
 
 
 --
--- TOC entry 2817 (class 2606 OID 16656)
+-- TOC entry 3250 (class 2606 OID 16495)
 -- Name: PRODUCTS fk_material; Type: FK CONSTRAINT; Schema: omg; Owner: postgres
 --
 
@@ -753,7 +765,7 @@ ALTER TABLE ONLY omg."PRODUCTS"
 
 
 --
--- TOC entry 2818 (class 2606 OID 16583)
+-- TOC entry 3244 (class 2606 OID 16500)
 -- Name: NUMOFORDER id_user_usersFK; Type: FK CONSTRAINT; Schema: omg; Owner: postgres
 --
 
@@ -762,7 +774,7 @@ ALTER TABLE ONLY omg."NUMOFORDER"
 
 
 --
--- TOC entry 2819 (class 2606 OID 16622)
+-- TOC entry 3245 (class 2606 OID 16505)
 -- Name: ORDER number_orderFK; Type: FK CONSTRAINT; Schema: omg; Owner: postgres
 --
 
@@ -771,7 +783,7 @@ ALTER TABLE ONLY omg."ORDER"
 
 
 --
--- TOC entry 2820 (class 2606 OID 16627)
+-- TOC entry 3246 (class 2606 OID 16510)
 -- Name: ORDER prod_idFK; Type: FK CONSTRAINT; Schema: omg; Owner: postgres
 --
 
@@ -780,275 +792,16 @@ ALTER TABLE ONLY omg."ORDER"
 
 
 --
--- TOC entry 2966 (class 0 OID 0)
--- Dependencies: 8
--- Name: SCHEMA omg; Type: ACL; Schema: -; Owner: postgres
+-- TOC entry 3414 (class 0 OID 0)
+-- Dependencies: 6
+-- Name: SCHEMA public; Type: ACL; Schema: -; Owner: postgres
 --
 
-GRANT USAGE ON SCHEMA omg TO readonly;
-GRANT USAGE ON SCHEMA omg TO insertonly;
-GRANT USAGE ON SCHEMA omg TO updateonly;
-GRANT USAGE ON SCHEMA omg TO deleteonly;
-GRANT USAGE ON SCHEMA omg TO "User";
-GRANT USAGE ON SCHEMA omg TO managers;
-GRANT USAGE ON SCHEMA omg TO logon_user;
+REVOKE USAGE ON SCHEMA public FROM PUBLIC;
+GRANT ALL ON SCHEMA public TO PUBLIC;
 
 
---
--- TOC entry 2967 (class 0 OID 0)
--- Dependencies: 229
--- Name: FUNCTION get_pr_name(id_ct integer); Type: ACL; Schema: omg; Owner: postgres
---
-
-GRANT ALL ON FUNCTION omg.get_pr_name(id_ct integer) TO logon_user;
-
-
---
--- TOC entry 2969 (class 0 OID 0)
--- Dependencies: 200
--- Name: TABLE "CATEGORY"; Type: ACL; Schema: omg; Owner: postgres
---
-
-GRANT SELECT ON TABLE omg."CATEGORY" TO readonly;
-GRANT INSERT ON TABLE omg."CATEGORY" TO insertonly;
-GRANT UPDATE ON TABLE omg."CATEGORY" TO updateonly;
-GRANT DELETE ON TABLE omg."CATEGORY" TO deleteonly;
-GRANT SELECT,INSERT,UPDATE ON TABLE omg."CATEGORY" TO managers;
-GRANT SELECT ON TABLE omg."CATEGORY" TO logon_user;
-
-
---
--- TOC entry 2970 (class 0 OID 0)
--- Dependencies: 204
--- Name: TABLE "COLOR"; Type: ACL; Schema: omg; Owner: postgres
---
-
-GRANT SELECT ON TABLE omg."COLOR" TO readonly;
-GRANT INSERT ON TABLE omg."COLOR" TO insertonly;
-GRANT UPDATE ON TABLE omg."COLOR" TO updateonly;
-GRANT DELETE ON TABLE omg."COLOR" TO deleteonly;
-GRANT SELECT,INSERT,UPDATE ON TABLE omg."COLOR" TO managers;
-
-
---
--- TOC entry 2971 (class 0 OID 0)
--- Dependencies: 205
--- Name: TABLE "MATERIAL"; Type: ACL; Schema: omg; Owner: postgres
---
-
-GRANT SELECT ON TABLE omg."MATERIAL" TO readonly;
-GRANT INSERT ON TABLE omg."MATERIAL" TO insertonly;
-GRANT UPDATE ON TABLE omg."MATERIAL" TO updateonly;
-GRANT DELETE ON TABLE omg."MATERIAL" TO deleteonly;
-GRANT SELECT,INSERT,UPDATE ON TABLE omg."MATERIAL" TO managers;
-
-
---
--- TOC entry 2973 (class 0 OID 0)
--- Dependencies: 202
--- Name: TABLE "NUMOFORDER"; Type: ACL; Schema: omg; Owner: postgres
---
-
-GRANT SELECT ON TABLE omg."NUMOFORDER" TO readonly;
-GRANT INSERT ON TABLE omg."NUMOFORDER" TO insertonly;
-GRANT UPDATE ON TABLE omg."NUMOFORDER" TO updateonly;
-GRANT DELETE ON TABLE omg."NUMOFORDER" TO deleteonly;
-GRANT SELECT ON TABLE omg."NUMOFORDER" TO "User";
-GRANT SELECT,INSERT,UPDATE ON TABLE omg."NUMOFORDER" TO managers;
-GRANT DELETE ON TABLE omg."NUMOFORDER" TO logon_user;
-
-
---
--- TOC entry 2974 (class 0 OID 0)
--- Dependencies: 202 2973
--- Name: COLUMN "NUMOFORDER".num_order; Type: ACL; Schema: omg; Owner: postgres
---
-
-GRANT INSERT(num_order) ON TABLE omg."NUMOFORDER" TO logon_user;
-
-
---
--- TOC entry 2975 (class 0 OID 0)
--- Dependencies: 203
--- Name: TABLE "ORDER"; Type: ACL; Schema: omg; Owner: postgres
---
-
-GRANT SELECT ON TABLE omg."ORDER" TO readonly;
-GRANT INSERT ON TABLE omg."ORDER" TO insertonly;
-GRANT UPDATE ON TABLE omg."ORDER" TO updateonly;
-GRANT DELETE ON TABLE omg."ORDER" TO deleteonly;
-GRANT SELECT ON TABLE omg."ORDER" TO "User";
-GRANT SELECT,INSERT,UPDATE ON TABLE omg."ORDER" TO managers;
-GRANT DELETE ON TABLE omg."ORDER" TO logon_user;
-
-
---
--- TOC entry 2976 (class 0 OID 0)
--- Dependencies: 203 2975
--- Name: COLUMN "ORDER".number_order; Type: ACL; Schema: omg; Owner: postgres
---
-
-GRANT INSERT(number_order) ON TABLE omg."ORDER" TO logon_user;
-
-
---
--- TOC entry 2977 (class 0 OID 0)
--- Dependencies: 203 2975
--- Name: COLUMN "ORDER".id_product; Type: ACL; Schema: omg; Owner: postgres
---
-
-GRANT INSERT(id_product),UPDATE(id_product) ON TABLE omg."ORDER" TO logon_user;
-
-
---
--- TOC entry 2978 (class 0 OID 0)
--- Dependencies: 203 2975
--- Name: COLUMN "ORDER".quantity; Type: ACL; Schema: omg; Owner: postgres
---
-
-GRANT INSERT(quantity),UPDATE(quantity) ON TABLE omg."ORDER" TO logon_user;
-
-
---
--- TOC entry 2980 (class 0 OID 0)
--- Dependencies: 198
--- Name: TABLE "PRODUCTS"; Type: ACL; Schema: omg; Owner: postgres
---
-
-GRANT SELECT ON TABLE omg."PRODUCTS" TO readonly;
-GRANT INSERT ON TABLE omg."PRODUCTS" TO insertonly;
-GRANT UPDATE ON TABLE omg."PRODUCTS" TO updateonly;
-GRANT DELETE ON TABLE omg."PRODUCTS" TO deleteonly;
-GRANT SELECT,INSERT,UPDATE ON TABLE omg."PRODUCTS" TO managers;
-GRANT SELECT ON TABLE omg."PRODUCTS" TO logon_user;
-
-
---
--- TOC entry 2981 (class 0 OID 0)
--- Dependencies: 198 2980
--- Name: COLUMN "PRODUCTS".product_id; Type: ACL; Schema: omg; Owner: postgres
---
-
-GRANT SELECT(product_id) ON TABLE omg."PRODUCTS" TO "User";
-
-
---
--- TOC entry 2982 (class 0 OID 0)
--- Dependencies: 198 2980
--- Name: COLUMN "PRODUCTS".product_name; Type: ACL; Schema: omg; Owner: postgres
---
-
-GRANT SELECT(product_name) ON TABLE omg."PRODUCTS" TO "User";
-
-
---
--- TOC entry 2983 (class 0 OID 0)
--- Dependencies: 198 2980
--- Name: COLUMN "PRODUCTS".price; Type: ACL; Schema: omg; Owner: postgres
---
-
-GRANT SELECT(price) ON TABLE omg."PRODUCTS" TO "User";
-
-
---
--- TOC entry 2985 (class 0 OID 0)
--- Dependencies: 197
--- Name: TABLE "USERS"; Type: ACL; Schema: omg; Owner: postgres
---
-
-GRANT SELECT ON TABLE omg."USERS" TO readonly;
-GRANT INSERT ON TABLE omg."USERS" TO insertonly;
-GRANT UPDATE ON TABLE omg."USERS" TO updateonly;
-GRANT DELETE ON TABLE omg."USERS" TO deleteonly;
-GRANT SELECT,INSERT,UPDATE ON TABLE omg."USERS" TO managers;
-
-
---
--- TOC entry 2986 (class 0 OID 0)
--- Dependencies: 197 2985
--- Name: COLUMN "USERS".id; Type: ACL; Schema: omg; Owner: postgres
---
-
-GRANT SELECT(id) ON TABLE omg."USERS" TO "User";
-GRANT SELECT(id) ON TABLE omg."USERS" TO logon_user;
-
-
---
--- TOC entry 2987 (class 0 OID 0)
--- Dependencies: 197 2985
--- Name: COLUMN "USERS".name; Type: ACL; Schema: omg; Owner: postgres
---
-
-GRANT SELECT(name) ON TABLE omg."USERS" TO "User";
-GRANT SELECT(name) ON TABLE omg."USERS" TO logon_user;
-
-
---
--- TOC entry 2989 (class 0 OID 0)
--- Dependencies: 210
--- Name: TABLE info_us_orders; Type: ACL; Schema: omg; Owner: postgres
---
-
-GRANT SELECT ON TABLE omg.info_us_orders TO readonly;
-GRANT INSERT ON TABLE omg.info_us_orders TO insertonly;
-GRANT UPDATE ON TABLE omg.info_us_orders TO updateonly;
-GRANT DELETE ON TABLE omg.info_us_orders TO deleteonly;
-GRANT SELECT,INSERT,UPDATE ON TABLE omg.info_us_orders TO managers;
-
-
---
--- TOC entry 2990 (class 0 OID 0)
--- Dependencies: 207
--- Name: TABLE user_orders_count; Type: ACL; Schema: omg; Owner: postgres
---
-
-GRANT SELECT ON TABLE omg.user_orders_count TO readonly;
-GRANT INSERT ON TABLE omg.user_orders_count TO insertonly;
-GRANT UPDATE ON TABLE omg.user_orders_count TO updateonly;
-GRANT DELETE ON TABLE omg.user_orders_count TO deleteonly;
-GRANT SELECT,INSERT,UPDATE ON TABLE omg.user_orders_count TO managers;
-
-
---
--- TOC entry 2991 (class 0 OID 0)
--- Dependencies: 208
--- Name: TABLE info_user_orders_count; Type: ACL; Schema: omg; Owner: postgres
---
-
-GRANT SELECT ON TABLE omg.info_user_orders_count TO readonly;
-GRANT INSERT ON TABLE omg.info_user_orders_count TO insertonly;
-GRANT UPDATE ON TABLE omg.info_user_orders_count TO updateonly;
-GRANT DELETE ON TABLE omg.info_user_orders_count TO deleteonly;
-GRANT SELECT,INSERT,UPDATE ON TABLE omg.info_user_orders_count TO managers;
-
-
---
--- TOC entry 2992 (class 0 OID 0)
--- Dependencies: 206
--- Name: TABLE post_client; Type: ACL; Schema: omg; Owner: postgres
---
-
-GRANT SELECT ON TABLE omg.post_client TO readonly;
-GRANT INSERT ON TABLE omg.post_client TO insertonly;
-GRANT UPDATE ON TABLE omg.post_client TO updateonly;
-GRANT DELETE ON TABLE omg.post_client TO deleteonly;
-GRANT SELECT,INSERT,UPDATE ON TABLE omg.post_client TO managers;
-
-
---
--- TOC entry 2993 (class 0 OID 0)
--- Dependencies: 209
--- Name: TABLE users_id; Type: ACL; Schema: omg; Owner: postgres
---
-
-GRANT SELECT ON TABLE omg.users_id TO readonly;
-GRANT INSERT ON TABLE omg.users_id TO insertonly;
-GRANT UPDATE ON TABLE omg.users_id TO updateonly;
-GRANT DELETE ON TABLE omg.users_id TO deleteonly;
-GRANT SELECT,INSERT,UPDATE ON TABLE omg.users_id TO managers;
-
-
--- Completed on 2023-06-23 08:02:09
+-- Completed on 2023-06-23 11:24:48
 
 --
 -- PostgreSQL database dump complete

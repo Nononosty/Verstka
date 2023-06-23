@@ -1,0 +1,39 @@
+.main {
+    display: flex;
+    align-items: center;
+}
+
+.main-container 
+{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.profile
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap;
+
+    
+}
+
+.profile_name
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 50px;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+
+.button {
+    background-color: #252425;
+    color: aliceblue;
+
+}

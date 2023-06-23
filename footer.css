@@ -1,0 +1,25 @@
+.footer 
+{
+    margin-top: 40px;
+}
+
+.footer_text
+{   
+    color: aliceblue;
+    padding: 25px 0;
+    display: flex;
+    gap: 7px;
+    text-align: center;
+    flex-direction: column;
+    background-color: black;
+}
+.container1 {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer_text > p
+{
+    margin: 0;
+}
