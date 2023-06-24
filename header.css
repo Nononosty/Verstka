@@ -7,8 +7,7 @@
 }
 .menuitem {
     color: white;
-    /*display: inline-block;*/
-    background: black;  /*хедер*/
+    background: black;  
     padding: 10px;
     font-size: 20px;
     text-align: center;

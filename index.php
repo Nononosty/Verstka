@@ -17,7 +17,7 @@
                 <h1>Добро пожаловать в наш кастом-магазин! Мы уверены, что вы найдете у нас то, что прийдётся вам по вкусу.</h1>
                 </div>
             <div class="image">
-                <img src="image/1.jpg" alt="picture_1" class="intro_img">
+                <img src="image/122.png" alt="picture_1" class="intro_img">
             </div>
         </article>
     </div>
